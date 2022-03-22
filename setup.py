@@ -12,7 +12,7 @@ setup(
     license='MIT',
     description='A python package for calculating the removal of microbial organisms in the subsurface',
     long_description=read('README.rst'),
-    long_description_content_type="text/x-rst",
+    long_description_content_type="text/reStructuredText",
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Science/Research',
@@ -28,7 +28,7 @@ setup(
     'Documentation': 'http://sutra.readthedocs.io/en/latest/',
     'Tracker': 'https://github.com/KWR-Water/sutra/issues',
     'Help': 'https://github.com/KWR-Water/sutra/issues',
-    # 'Help': 'https://stackoverflow.com/questions/tagged/greta'
+    # 'Help': 'https://stackoverflow.com/questions/tagged/sutra'
     },
     install_requires=[
         'pandas>=0.23',
