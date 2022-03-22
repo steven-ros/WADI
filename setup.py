@@ -12,7 +12,7 @@ setup(
     license='MIT',
     description='A python package for calculating the removal of microbial organisms in the subsurface',
     long_description=read('README.rst'),
-    long_description_content_type="",
+    long_description_content_type="text/x-rst",
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Science/Research',
