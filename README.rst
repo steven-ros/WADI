@@ -1,5 +1,5 @@
 SUTRA
-====
+============
 .. image:: https://readthedocs.org/projects/sutra/badge/?version=latest&style=flat
                     :target: https://sutra.readthedocs.io
 .. image:: https://img.shields.io/travis/KWR-Water/greta
@@ -16,10 +16,11 @@ Installation
 ------------
 To get the latest stable version, use::
 
- python -m pip install git+https://github.com/KWR-Water/sutra.git@main
+python -m pip install git+https://github.com/KWR-Water/sutra.git@main
 
 or::
-  pip install git+ssh://git@github.com/KWR-Water/sutra.git@main
+
+pip install git+ssh://git@github.com/KWR-Water/sutra.git@main
 
 License
 -------
