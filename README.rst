@@ -2,7 +2,7 @@ SUTRA
 ============
 .. image:: https://readthedocs.org/projects/sutra/badge/?version=latest&style=flat
                     :target: https://sutra.readthedocs.io
-.. image:: https://img.shields.io/travis/KWR-Water/greta
+.. image:: https://img.shields.io/travis/KWR-Water/sutra
                     :target: https://travis-ci.com/KWR-Water/sutra
 .. image:: https://img.shields.io/codecov/c/gh/KWR-Water/sutra
                     :target: https://codecov.io/gh/KWR-Water/sutra
@@ -25,6 +25,6 @@ or::
 License
 -------
 
-This package is MIT licensed. See `License File <https://github.com/KWR-Water/greta/blob/master/LICENSE>`__.
+This package is MIT licensed. See `License File <https://github.com/KWR-Water/sutra/blob/master/LICENSE>`__.
 
-.. _documentation: https://greta.readthedocs.io/en/latest/
+.. _documentation: https://sutra.readthedocs.io/en/latest/
