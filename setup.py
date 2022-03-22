@@ -35,7 +35,7 @@ setup(
 
         ],
     include_package_data=True,
-    url='https://github.com/KWR-Water/greta',
+    url='https://github.com/KWR-Water/sutra',
     author='KWR Water Research Institute',
     author_email='martin.korevaar@kwrwater.nl, martin.van.der.schans@kwrwater.nl, steven.ros@kwrwater.nl, alex.hockin@kwrwater.nl',
 )
