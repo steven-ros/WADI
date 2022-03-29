@@ -1,5 +1,5 @@
-conda activate base -r ../requirements.txt
-
+# conda activate base 
+-r ../requirements.txt
 ipykernel
 matplotlib=3.3.4
 flopy=3.3.3 
