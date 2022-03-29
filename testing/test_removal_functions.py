@@ -12,7 +12,7 @@ import warnings
 
 from zmq import zmq_version_info
 
-import sutra.sutra_functions as SF
+import sutra.removal_functions as RF
 
 # get directory of this file
 path = Path(__file__).parent #os.getcwd() #path of working directory
@@ -32,7 +32,7 @@ def test_scenarios_mbo_removal_function(organism_name = "MS2"):
     df_output = pd.DataFrame(index = df_test.index, columns = columns_output)
 
     # Calculate advective microbial removal
-    mbo_removal = SF.MicrobialRemoval(organism = organism_name)
+    mbo_removal = RF.MicrobialRemoval(organism = organism_name)
 
     for fid in df_test.index:
         organism_name = "MS2"
@@ -100,7 +100,7 @@ def test_mbo_removal_function_check_default(organism_name = "MS2",
 
     ## Default test
     # Calculate advective microbial removal
-    mbo_removal_default = SF.MicrobialRemoval(organism = organism_name)
+    mbo_removal_default = RF.MicrobialRemoval(organism = organism_name)
     # Calculate final concentration after advective microbial removal
     C_final_default= mbo_removal_default.calc_advective_microbial_removal()
 
@@ -126,7 +126,7 @@ def test_mbo_removal_function_check_default(organism_name = "MS2",
     '''
 
     # Calculate advective microbial removal
-    mbo_removal_test = SF.MicrobialRemoval(organism = organism_name)
+    mbo_removal_test = RF.MicrobialRemoval(organism = organism_name)
     # Calculate final concentration after advective microbial removal
     C_final_test = mbo_removal_test.calc_advective_microbial_removal(grainsize = grainsize,
                                             temp_water = temp_water, rho_water = rho_water,
@@ -176,7 +176,7 @@ def test_manual_input_mbo_removal(organism_name = "MS2"):
     porewater_velocity = distance_traveled / traveltime
 
     # Calculate advective microbial removal
-    mbo_removal = SF.MicrobialRemoval(organism = organism_name)
+    mbo_removal = RF.MicrobialRemoval(organism = organism_name)
     # Calculate advective microbial removal
     C_final = mbo_removal.calc_advective_microbial_removal(grainsize = grainsize,
                                             temp_water = temp_water, rho_water = rho_water,

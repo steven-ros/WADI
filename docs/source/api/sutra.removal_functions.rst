@@ -1,7 +1,7 @@
-greta.ModPath\_functions module
+sutra.removal\_functions module
 ===============================
 
-.. automodule:: greta.ModPath_functions
+.. automodule:: sutra.removal_functions
    :members:
    :undoc-members:
    :show-inheritance:
