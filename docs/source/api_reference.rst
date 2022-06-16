@@ -6,5 +6,4 @@ API reference
 .. toctree::
    :maxdepth: 2
 
-   Analytical solutions <api/greta.Analytical_Well.rst>
-   schematisation <api/greta.Substance_Transport.rst>
+   Microbial removal in saturated subsoil <api/sutra.removal_functions.rst>
