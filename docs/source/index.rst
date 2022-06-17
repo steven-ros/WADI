@@ -13,11 +13,11 @@ Fields (PSWFs)
     :glob:
 
     getting-started.rst
-    tutorial.rst
     faq.rst
     glossary.rst
     API reference <api/modules.rst>
+    api_reference.rst
     about.rst
     known_issues.rst
 .. example.rst very large snippet
-
+   tutorial.rst
