@@ -2,7 +2,8 @@
 About
 ========
 
-SUTRA is developed by KWR Water Research Institute. The code is based on the original `Excel-based TRANSATOMIC program by Pieter Stuyfzand `_.
+SUTRA is developed by KWR Water Research Institute. The code is based on the equations given in chapter 6.7 of 
+BTO 2012.015 "Gezondheidsrisico's van fecale verontreiniging" [in Dutch].
 
 ..
   #AH @MartinK - some kind of link to TRANSATOMIC KWR report? e.g. https://library.kwrwater.nl/publication/59205490/
@@ -10,7 +11,7 @@ SUTRA is developed by KWR Water Research Institute. The code is based on the ori
 
 License
 -------
-This package is MIT licensed. See `License File <https://github.com/KWR-Water/greta/blob/main/LICENSE/>`_ .
+This package is MIT licensed. See `License File <https://github.com/KWR-Water/sutra/blob/main/LICENSE/>`_ .
 
 ..
   #AH @MartinK - licence change name Greta to SSTR?

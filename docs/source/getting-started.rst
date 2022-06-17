@@ -1,30 +1,20 @@
 ===============
 Getting Started
 ===============
-SSTR (SubSurface TRansport) is a python package to model the behavior of Organic
-MicroPollutants (OMPs) and pathogens for 4 standard types of Public Supply Well
-Fields (PSWFs).
+Sutra is a python package to calculate the advective removal of microbial organisms (also called 'pathogens')
+            from source to end_point.
 
 Main features:
- - Calculate the travel time distribition for 4 PSWF types using an analytical or numerical (Modflow) solution
- - Calculate the travel time for different aquifer zones
- - Numerical solution using FloPy
- - Includes database of substance paramters
- - Calculate the removal and concentration of the substance or pathogen is interest in each aquifer zone and the well
-
-..
-    @Steven/MartinvdS anythign to add here? for modflow? (#AH @MartinK, somehting about QSAR here)
+ - Includes database of removal parameters for microbial organisms. 
+ - Calculate the removal and concentration of the microbial organism over distance, and with time   
 
 Install
 -------
-SSTR requires Python 3.6 or later.
+Sutra requires Python 3.7 or later.
 
-To get SSTR, use the following command::
+To get Sutra, use the following command::
 
-  pip install git+https://github.com/KWR-Water/greta.git
-
-..
-  #AH @MartinK -> check how to do this. @ALEX: do we want to have this on pypi?
+  pip install git+https://github.com/KWR-Water/sutra.git
 
 Philosophy
 ----------
@@ -32,18 +22,7 @@ Philosophy
 ..
   #AH AH @MartinvdS @MartinK ...  what here?
 
-SSTR calculates the behavior of OMPs and pathogens for 4 standard types of PSWFs, which cover the most frequently occurring and most vulnerable
-groundwater resources for drinking water supply in the Netherlands (and Flanders).
-One of the aims of this approach is to forecast the behavior of new OMPs in
-groundwater. Groundwater is often overlooked in current environmental risk
-assessment methods, which are a priori or a posteriori applied when new organic
-chemicals appear on the market.
-
-
-Conventions
------------
-..
-  #AH AH @MartinvdS @MartinK ...  what here?
-  #@ALEX: MWK: dont know. ask MartinvdS to see if he wants to indicate we are using flopy convention here.
-
-The naming conventions follow the naming conventions for... FloPy?
+Sutra calculates the subsurface removal of microbial organisms over a distance and with time using an analytical approach.  
+The aim is to allow for a quick assessment of subsurface removal of microbial organisms for a growing selection of species.    
+A database was added, starting with plant pathogens 'solani' (Dickeya solani), 'carotovorum' (Pectobacterium carotovorum), 
+and 'solanacearum' (Ralstonia solanacearum). Additional species will be added once more data will become available. 

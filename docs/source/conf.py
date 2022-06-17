@@ -19,12 +19,12 @@ sys.path.insert(0, os.path.abspath('../..'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'Greta'
-copyright = '2021, KWR Water Research Institute'
+project = 'Sutra'
+copyright = '2022, KWR Water Research Institute'
 author = 'Martin Korevaar, Martin van der Schans, Steven Ros, Alex Hockin'
 
 # The full version, including alpha/beta/rc tags
-release = '0.1'
+release = '0.1.1'
 
 
 # -- General configuration ---------------------------------------------------
@@ -34,9 +34,9 @@ master_doc = 'index'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    "IPython.sphinxext.ipython_directive",
+    # "IPython.sphinxext.ipython_directive",
     "IPython.sphinxext.ipython_console_highlighting",
-    "matplotlib.sphinxext.plot_directive",
+    # "matplotlib.sphinxext.plot_directive",
     'sphinx.ext.napoleon',
     'sphinx.ext.autodoc',
     'sphinx_rtd_theme'
