@@ -20,6 +20,9 @@ path = Path(__file__).parent #os.getcwd() #path of working directory
 
 #%%
 def test_scenarios_mbo_removal_function(organism_name = "MS2"):
+    ''' Verify manual input for a species that is not yet available in the 'Organism'
+        class (containing default removal parameters for some researched species).
+    '''
 
     # Location of test file for scenarios
     scenarios_fpath = os.path.join(path,"Testberekeningen_sutra_mbo_removal_220321.xlsx")
@@ -31,11 +34,10 @@ def test_scenarios_mbo_removal_function(organism_name = "MS2"):
     columns_output = ["k_att","lambda","steady_state_concentration"]
     df_output = pd.DataFrame(index = df_test.index, columns = columns_output)
 
-    # Calculate advective microbial removal
-    mbo_removal = RF.MicrobialRemoval(organism = organism_name)
+
 
     for fid in df_test.index:
-        organism_name = "MS2"
+        organism_name = organism_name
         redox = df_test.at[fid,'redox']
         alpha0 = df_test.at[fid,'alpha0']
         reference_pH = df_test.at[fid,'reference_pH']
@@ -51,6 +53,8 @@ def test_scenarios_mbo_removal_function(organism_name = "MS2"):
         distance_traveled = df_test.at[fid,'relative_distance']
         traveltime = df_test.at[fid,'total_travel_time']
  
+        # Calculate advective microbial removal
+        mbo_removal = RF.MicrobialRemoval(organism = organism_name)
         # Calculate final concentration after advective microbial removal
         C_final = mbo_removal.calc_advective_microbial_removal(grainsize = grainsize,
                                                 temp_water = temp_water, rho_water = rho_water,
@@ -82,12 +86,12 @@ def test_scenarios_mbo_removal_function(organism_name = "MS2"):
     #print("dataframe values differ to much: " + str(round(diff_perc.max(),2)) + " %")
 
 #%%
-def test_mbo_removal_function_check_default(organism_name = "MS2",
+def test_mbo_removal_function_check_default(organism_name = "carotovorum",
                                             redox = 'anoxic',
-                                            alpha0 = 1.e-5,
-                                            reference_pH = 6.8,
-                                            mu1 = 0.023,
-                                            organism_diam = 2.33e-8,
+                                            alpha0 = 0.577,
+                                            reference_pH = 7.5,
+                                            mu1 = 0.1279,
+                                            organism_diam = 1.803e-6,
                                             por_eff = 0.33,
                                             grainsize = 0.00025,
                                             pH_water = 7.5,
@@ -97,23 +101,16 @@ def test_mbo_removal_function_check_default(organism_name = "MS2",
                                             conc_gw = 0.,
                                             distance_traveled = 1.,
                                             traveltime = 100.):
-
-    ## Default test
-    # Calculate advective microbial removal
-    mbo_removal_default = RF.MicrobialRemoval(organism = organism_name)
-    # Calculate final concentration after advective microbial removal
-    C_final_default= mbo_removal_default.calc_advective_microbial_removal()
-
-    # Lambda (default): inactivation 
-    lambda_default = mbo_removal_default.lambda_   
-
-    '''
+    ''' Verify whether the default removal parameters is loaded successfully and gives 
+        the same result as manual input for the 'default parameters'.
+    
     ## Default parameters: ##
+    organism_name = "carotovorum"
     redox = 'anoxic',
-    alpha0 = 1.e-5,
-    reference_pH = 6.8,
-    mu1 = 0.023,
-    organism_diam = 2.33e-8,
+    alpha0 = 0.577,
+    reference_pH = 7.5,
+    mu1 = 0.1279,
+    organism_diam = 1.803e-6,
     por_eff = 0.33,
     grainsize = 0.00025,
     pH_water = 7.5,
@@ -124,6 +121,17 @@ def test_mbo_removal_function_check_default(organism_name = "MS2",
     distance_traveled = 1.,
     traveltime = 100.
     '''
+
+    ## Default test
+    # Calculate advective microbial removal
+    mbo_removal_default = RF.MicrobialRemoval(organism = organism_name)
+    # Calculate final concentration after advective microbial removal
+    C_final_default= mbo_removal_default.calc_advective_microbial_removal()
+
+    # Lambda (default): inactivation 
+    lambda_default = mbo_removal_default.lambda_   
+
+
 
     # Calculate advective microbial removal
     mbo_removal_test = RF.MicrobialRemoval(organism = organism_name)
@@ -150,7 +158,10 @@ def test_mbo_removal_function_check_default(organism_name = "MS2",
 
 
 def test_manual_input_mbo_removal(organism_name = "MS2"):
-
+    '''
+    Verify manual input to function 'calc_advective_microbial_removal'
+    against an earlier result.
+    '''
     # test parameters
     organism_name = organism_name
     por_eff = 0.33

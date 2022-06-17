@@ -20,5 +20,4 @@ Sutra - A python package to calculate the removal of microbial organisms in the 
     known_issues.rst
     tutorial.rst
 .. example.rst very large snippet
-   tutorial.rst
    API reference <api/modules.rst>

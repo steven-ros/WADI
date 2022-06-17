@@ -131,8 +131,30 @@ class Organism:
             }
         #@ Steven voeg toe: micro_organism_dict
         # self.micro_organism_dict = micro_organism_dict[substance_name]
-        self.organism_dict = micro_organism_dict[self.organism_name]
+        if self.organism_name in micro_organism_dict.keys():
+            self.organism_dict = micro_organism_dict[self.organism_name]
+        else: # return empty dict
+            self.organism_dict = \
+                {"organism_name": self.organism_name,
+                 "alpha0": {
+                    "suboxic": None, 
+                    "anoxic": None, 
+                    "deeply_anoxic": None
+                    },
+                 "reference_pH": {
+                    "suboxic": None, 
+                    "anoxic": None, 
+                    "deeply_anoxic": 7.5
+                    },
+                 "organism_diam": None,
+                 "mu1": {
+                    "suboxic": None, 
+                    "anoxic": None, 
+                    "deeply_anoxic": None
+                     }
+                }
 
+        
 
 class MicrobialRemoval():
     '''
@@ -158,7 +180,7 @@ class MicrobialRemoval():
     '''
 
     def __init__(self,
-                organism: Organism = 'MS2',
+                organism: Organism = 'carotovorum',
                 partition_coefficient_water_organic_carbon=None,
                 dissociation_constant=None,
                 halflife_suboxic=None,
@@ -175,7 +197,6 @@ class MicrobialRemoval():
                 mu1_deeply_anoxic=None,
                 organism_diam=None,
                 ):
-
         '''
         Initialization of the MicrobialRemoval class, checks for user-defined 
         microbial organism removal parameters and overrides the database values.
@@ -193,9 +214,6 @@ class MicrobialRemoval():
         self.mu1_anoxic=mu1_anoxic
         self.mu1_deeply_anoxic=mu1_deeply_anoxic
         self.organism_diam=organism_diam        
-
-        # Load (default) microbial organism data
-        self.organism = Organism(organism_name = organism)
 
         # Create user dict with 'removal_parameters' from input
         # if self.removal_function == 'omp':
@@ -224,8 +242,11 @@ class MicrobialRemoval():
         
         # User defined removal parameters [omp]
         user_removal_parameters = user_removal_parameters[self.organism_name]
+
+        # Load (default) microbial organism data
+        self.Organism = Organism(organism_name = organism)
         # assumes that default dict contains microbial organism input (only MS2 currently supported)
-        default_removal_parameters = self.organism.organism_dict
+        default_removal_parameters = self.Organism.organism_dict
 
         # iterate through the dictionary keys
         for key, value in user_removal_parameters.items():
@@ -259,7 +280,7 @@ class MicrobialRemoval():
         ''' For more information about the advective microbial removal calculation: 
                 BTO2012.015: Ch 6.7 (page 71-74)
 
-        Calculate removal coefficient 'lambda_' [/day].
+        Calculate removal coefficient lambda_ [/day].
 
             lambda_ = k_att + mu_1
             with 'hechtingssnelheidscoëfficiënt k_att [/day] and
@@ -351,7 +372,6 @@ class MicrobialRemoval():
             Distance between points 'distance_traveled' [m]
             Time between start and endpoint 'traveltime' [days]
 
-            
         '''
 
         # mu1 [day -1]
@@ -389,4 +409,3 @@ class MicrobialRemoval():
 
         # return final concentration 'C_final'
         return C_final
-
