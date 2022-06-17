@@ -3,7 +3,7 @@ About
 ========
 
 SUTRA is developed by KWR Water Research Institute. The code is based on the equations given in chapter 6.7 of 
-BTO 2012.015 "Gezondheidsrisico's van fecale verontreiniging" [in Dutch].
+BTO 2012.015 "Gezondheidsrisico's van fecale verontreiniging" [in Dutch], pp 71-74.
 
 ..
   #AH @MartinK - some kind of link to TRANSATOMIC KWR report? e.g. https://library.kwrwater.nl/publication/59205490/

@@ -1,8 +1,8 @@
 ===============
 Getting Started
 ===============
-Sutra is a python package to calculate the advective removal of microbial organisms (also called 'pathogens')
-            from source to end_point.
+Sutra is a python package to calculate the advective removal of microbial organisms 
+(also called 'pathogens') from source to end_point.
 
 Main features:
  - Includes database of removal parameters for microbial organisms. 
@@ -10,7 +10,7 @@ Main features:
 
 Install
 -------
-Sutra requires Python 3.7 or later.
+Sutra requires Python 3.6 or later.
 
 To get Sutra, use the following command::
 

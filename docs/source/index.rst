@@ -5,8 +5,8 @@
 
 Introduction
 ===============================
-SSTR - A python package to model the behavior of Organic MicroPollutants (OMPs) and pathogens for 4 standard types of Public Supply Well
-Fields (PSWFs)
+Sutra - A python package to calculate the removal of microbial organisms in the subsoil.
+
 
 .. toctree::
     :maxdepth: 2
@@ -21,3 +21,4 @@ Fields (PSWFs)
     known_issues.rst
 .. example.rst very large snippet
    tutorial.rst
+   
