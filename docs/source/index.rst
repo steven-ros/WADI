@@ -15,10 +15,10 @@ Sutra - A python package to calculate the removal of microbial organisms in the 
     getting-started.rst
     faq.rst
     glossary.rst
-    API reference <api/modules.rst>
     api_reference.rst
     about.rst
     known_issues.rst
+    tutorial.rst
 .. example.rst very large snippet
    tutorial.rst
-   
+   API reference <api/modules.rst>
