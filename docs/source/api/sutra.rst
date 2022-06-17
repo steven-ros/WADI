@@ -7,8 +7,8 @@ Submodules
 .. toctree::
    :maxdepth: 2
 
-   sutra.removal_functions
    sutra.project_path
+   sutra.removal_functions
 
 Module contents
 ---------------
