@@ -31,7 +31,7 @@ class Organism:
     'alpha0': float
         reference_collision_efficiency [-]
         per redox zone ('suboxic', 'anoxic', deeply_anoxic')
-    'reference_pH': float
+    'pH0': float
         reference pH for calculating collision efficiency [-]
         per redox zone ('suboxic', 'anoxic', deeply_anoxic')
     'organism_diam': float
@@ -54,7 +54,7 @@ class Organism:
             'alpha0': float
                 reference_collision_efficiency [-]
                 per redox zone ('suboxic', 'anoxic', deeply_anoxic')
-            'reference_pH': float
+            'pH0': float
                 reference pH for calculating collision efficiency [-]
                 per redox zone ('suboxic', 'anoxic', deeply_anoxic')
             'organism_diam': float
@@ -78,7 +78,7 @@ class Organism:
                         "anoxic": 0.037e-2,     # NOT reported: factor 100 smaller than suboxic
                         "deeply_anoxic": 0.037e-2
                     },
-                    "reference_pH": {
+                    "pH0": {
                         "suboxic": 7.5, 
                         "anoxic": 7.5,          # NOT reported: assumed equal to suboxic
                         "deeply_anoxic": 7.5    # NOT reported: assumed equal to suboxic
@@ -97,7 +97,7 @@ class Organism:
                         "anoxic": 0.577, 
                         "deeply_anoxic": 0.577
                     },
-                    "reference_pH": {
+                    "pH0": {
                         "suboxic": 7.5, 
                         "anoxic": 7.5, 
                         "deeply_anoxic": 7.5
@@ -116,7 +116,7 @@ class Organism:
                         "anoxic": 0.456, 
                         "deeply_anoxic": 0.456
                     },
-                    "reference_pH": {
+                    "pH0": {
                         "suboxic": 7.5, 
                         "anoxic": 7.5, 
                         "deeply_anoxic": 7.5
@@ -141,7 +141,7 @@ class Organism:
                     "anoxic": None, 
                     "deeply_anoxic": None
                     },
-                 "reference_pH": {
+                 "pH0": {
                     "suboxic": None, 
                     "anoxic": None, 
                     "deeply_anoxic": 7.5
@@ -168,7 +168,7 @@ class MicrobialRemoval():
             'alpha0': float
                 reference_collision_efficiency [-]
                 per redox zone ('suboxic', 'anoxic', deeply_anoxic')
-            'reference_pH': float
+            'pH0': float
                 reference pH for calculating collision efficiency [-]
                 per redox zone ('suboxic', 'anoxic', deeply_anoxic')
             'organism_diam': float
@@ -184,9 +184,9 @@ class MicrobialRemoval():
                 alpha0_suboxic=None,
                 alpha0_anoxic=None,
                 alpha0_deeply_anoxic=None,
-                reference_pH_suboxic=None,
-                reference_pH_anoxic=None,
-                reference_pH_deeply_anoxic=None,
+                pH0_suboxic=None,
+                pH0_anoxic=None,
+                pH0_deeply_anoxic=None,
                 mu1_suboxic=None,
                 mu1_anoxic=None,
                 mu1_deeply_anoxic=None,
@@ -202,9 +202,9 @@ class MicrobialRemoval():
         self.alpha0_suboxic=alpha0_suboxic
         self.alpha0_anoxic=alpha0_anoxic
         self.alpha0_deeply_anoxic=alpha0_deeply_anoxic
-        self.reference_pH_suboxic=reference_pH_suboxic
-        self.reference_pH_anoxic=reference_pH_anoxic
-        self.reference_pH_deeply_anoxic=reference_pH_deeply_anoxic
+        self.pH0_suboxic=pH0_suboxic
+        self.pH0_anoxic=pH0_anoxic
+        self.pH0_deeply_anoxic=pH0_deeply_anoxic
         self.mu1_suboxic=mu1_suboxic
         self.mu1_anoxic=mu1_anoxic
         self.mu1_deeply_anoxic=mu1_deeply_anoxic
@@ -220,10 +220,10 @@ class MicrobialRemoval():
                         "anoxic": self.alpha0_anoxic, 
                         "deeply_anoxic": self.alpha0_deeply_anoxic
                     },
-                    "reference_pH": {
-                        "suboxic": self.reference_pH_suboxic, 
-                        "anoxic": self.reference_pH_anoxic, 
-                        "deeply_anoxic": self.reference_pH_deeply_anoxic
+                    "pH0": {
+                        "suboxic": self.pH0_suboxic, 
+                        "anoxic": self.pH0_anoxic, 
+                        "deeply_anoxic": self.pH0_deeply_anoxic
                     },
                     "organism_diam": self.organism_diam,
                     "mu1": {
@@ -269,47 +269,49 @@ class MicrobialRemoval():
                 temp_water = 10.,
                 rho_water = 999.703,
                 alpha0 = 0.001,
-                reference_pH = 7.5,
+                pH0 = 7.5,
                 organism_diam = 2.33e-8, v_por = 0.01):
         
         ''' For more information about the advective microbial removal calculation: 
-                BTO2012.015: Ch 6.7 (page 71-74)
+            BTO2012.015: Ch 6.7 (page 71-74)
 
-        Calculate removal coefficient lambda_ [/day].
-
-            lambda_ = k_att + mu_1
+            Calculate removal coefficient lambda [/day].
+            
+            Parameters:
+            --------
+            lambda: k_att + mu_1
             with 'hechtingssnelheidscoëfficiënt k_att [/day] and
             inactivation constant 'mu1' [/day] - sub(oxic): 0.149 [/day]
             lognormal standarddev. 'mu1_std' - sub(oxic): 0.0932 [/day]
 
-        First, calculate "hechtingssnelheidscoëfficiënt" 'k_att' [/day]
+            First, calculate "hechtingssnelheidscoëfficiënt" 'k_att' [/day]
             for Particle Paths with id_vals 'part_idx'
-        # Effective porosity ('por_eff') [-]
-        # grain size 'grainsize' [m]
-        # collision efficiency ('botsingsefficiëntie') 'bots_eff' [-]
-        # Boltzmann constant (const_BM) [1,38 × 10-23 J K-1] 
-        # Water temperature 'temp_water' [degrees celcius]
-        # Water density 'rho_water' [kg m-3]
-        # Organism/species diameter 'organism_diam' [m]
-        # porewater velocity 'v_por' [m/d]
-        
-        # Check - (example 'E_coli'):
-        >> k_att = calc_katt(part_idx = [0], por_eff = [0.33], korrelgrootte = [0.00025],
-                bots_eff = 0.001, const_BM = 1.38e-23,
-                temp_water = [10.], rho_water = [999.703],
-                organism_diam = 2.33e-8, v_por = [0.01])
-        >> print(k_att)
-        >> {0: 0.7993188853572424} # [/day]
+            # Effective porosity ('por_eff') [-]
+            # grain size 'grainsize' [m]
+            # collision efficiency ('botsingsefficiëntie') 'bots_eff' [-]
+            # Boltzmann constant (const_BM) [1,38 × 10-23 J K-1] 
+            # Water temperature 'temp_water' [degrees celcius]
+            # Water density 'rho_water' [kg m-3]
+            # Organism/species diameter 'organism_diam' [m]
+            # porewater velocity 'v_por' [m/d]
+            
+            # Check - (example 'E_coli'):
+            >> k_att = calc_katt(part_idx = [0], por_eff = [0.33], korrelgrootte = [0.00025],
+            bots_eff = 0.001, const_BM = 1.38e-23,
+            temp_water = [10.], rho_water = [999.703],
+            organism_diam = 2.33e-8, v_por = [0.01])
+            >> print(k_att)
+            >> {0: 0.7993188853572424} # [/day]
         '''
 
         # Boltzmann coefficient [J K-1]
         const_BM = 1.38e-23    
 
-        # Collision efficiency
-        coll_eff = alpha0 * 0.9**((pH - reference_pH)/0.1)
+        # Sticky coefficient
+        alpha = alpha0 * 0.9**((pH - pH0)/0.1)
 
         # Collision term 'k_coll'
-        k_coll = (3/2.)*((1-por_eff) / grainsize) * coll_eff
+        k_coll = (3/2.)*((1-por_eff) / grainsize) * alpha
 
         # Porosity dependent variable 'gamma'
         gamma = (1-por_eff)**(1/3)
@@ -336,12 +338,12 @@ class MicrobialRemoval():
         k_diff = ((D_BM /
                     (grainsize * por_eff * v_por))**(2/3) * v_por)
 
-        # hechtingssnelheidscoëfficiënt k_att [/dag] :'attachment coefficient related to porewater velocity'
+        # 'attachment coefficient' [day-1]
         k_att = k_coll * 4 * As_happ**(1/3) * k_diff
-        # removal coefficient 'lambda_' [/day], using the 'mu1' mean.
-        lambda_ = k_att + mu1
+        # removal coefficient 'lamda' [lambda: day-1], using 'mu1' mean.
+        lamda = k_att + mu1
 
-        return lambda_, k_att
+        return lamda, k_att
     
     def calc_advective_microbial_removal(self, grainsize = 0.00025,
                                         temp_water = 11., rho_water = 999.703,
@@ -349,7 +351,7 @@ class MicrobialRemoval():
                                         conc_start = 1., conc_gw = 0.,
                                         redox = 'anoxic',
                                         distance_traveled = 1., traveltime = 100.,
-                                        mu1 = None, alpha0 = None, reference_pH = None,
+                                        mu1 = None, alpha0 = None, pH0 = None,
                                         organism_diam = None):
         ''' Calculate the advective microbial removal of microbial organisms
             from source to end_point.
@@ -360,7 +362,7 @@ class MicrobialRemoval():
             Calculate the steady state concentration along traveled distance per 
             node for each pathline from startpoint to endpoint_id'.
             
-            With removal coefficient 'lambda_' [/d] (redox dependent)
+            With removal coefficient 'lambda' [day-1] (redox dependent)
             effective porosity 'porosity' [-]
             Starting concentration 'conc_start' per pathline
             Initial groundwater concentration 'conc_gw'
@@ -378,8 +380,8 @@ class MicrobialRemoval():
             alpha0 = self.removal_parameters['alpha0'][redox]
 
         # reference pH [-]
-        if reference_pH is None:
-            reference_pH = self.removal_parameters['reference_pH'][redox]
+        if pH0 is None:
+            pH0 = self.removal_parameters['pH0'][redox]
 
         # organism diameter [m]
         if organism_diam is None:
@@ -389,17 +391,17 @@ class MicrobialRemoval():
         v_por = distance_traveled / traveltime
 
         # Calculate removal coefficient lambda [day -1]
-        self.lambda_, self.k_att = self.calc_lambda(redox = redox, mu1 = mu1,
+        self.lamda, self.k_att = self.calc_lambda(redox = redox, mu1 = mu1,
                                     por_eff = por_eff, grainsize = grainsize, 
                                     pH = pH, 
                                     temp_water = temp_water, 
                                     rho_water = rho_water,
                                     alpha0 = alpha0, 
-                                    reference_pH = reference_pH,
+                                    pH0 = pH0,
                                     organism_diam = organism_diam)
 
         # Calculate concentration after microbial removal in subsurface
-        C_final = (conc_start - conc_gw) * np.exp(-(self.lambda_/v_por)*distance_traveled) + conc_gw
+        C_final = (conc_start - conc_gw) * np.exp(-(self.lamda/v_por)*distance_traveled) + conc_gw
 
 
         # return final concentration 'C_final'

@@ -101,7 +101,7 @@ Now, let’s try some examples. First we import the necessary python packages
             # k_att, calculated
             df_output.loc[fid,"k_att"] = mbo_removal.k_att
             # lambda, calculated
-            df_output.loc[fid,"lambda"] = mbo_removal.lambda_
+            df_output.loc[fid,"lambda"] = mbo_removal.lambda_rate
             # (relative) concentration, calculated
             df_output.loc[fid,"steady_state_concentration"] = C_final
 
@@ -139,7 +139,7 @@ Now, let’s try some examples. First we import the necessary python packages
         C_final_default= mbo_removal_default.calc_advective_microbial_removal()
 
         # Lambda (default): inactivation 
-        lambda_default = mbo_removal_default.lambda_   
+        lambda_default = mbo_removal_default.lambda_rate   
 
         '''
         ## Default parameters: ##
@@ -175,8 +175,8 @@ Now, let’s try some examples. First we import the necessary python packages
                                                 reference_pH = reference_pH
                                                 )
 
-        # Lambda: inactivation 
-        lambda_test = mbo_removal_test.lambda_     
+        # Lambda: inactivation rate
+        lambda_test = mbo_removal_test.lambda_rate     
 
         assert round(lambda_default,4) == round(lambda_test,4) 
         assert round(C_final_default,4) == round(C_final_test,4)
@@ -224,10 +224,10 @@ Now, let’s try some examples. First we import the necessary python packages
                                                 alpha0 = alpha0,
                                                 reference_pH = reference_pH
                                                 )
-        # Lambda: inactivation 
-        lambda_ = mbo_removal.lambda_                                             
+        # Lambda: inactivation rate
+        lambda_rate = mbo_removal.lambda_rate                                             
 
-        assert round(lambda_,4) == round(0.7993188853572424 + mu1,4) 
+        assert round(lambda_rate,4) == round(0.7993188853572424 + mu1,4) 
 
         assert round(C_final,3) == round(6.531818379725895e-42,3)
 

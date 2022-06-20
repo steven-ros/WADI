@@ -12,7 +12,7 @@ import warnings
 
 from zmq import zmq_version_info
 
-import sutra.removal_functions as RF
+import sutra.removal_functions as rf
 
 # get directory of this file
 path = Path(__file__).parent #os.getcwd() #path of working directory
@@ -40,7 +40,7 @@ def test_scenarios_mbo_removal_function(organism_name = "MS2"):
         organism_name = organism_name
         redox = df_test.at[fid,'redox']
         alpha0 = df_test.at[fid,'alpha0']
-        reference_pH = df_test.at[fid,'reference_pH']
+        pH0 = df_test.at[fid,'pH0']
         mu1 = df_test.at[fid,'mu1']
         organism_diam = df_test.at[fid,'organism_diam']
         por_eff = df_test.at[fid,'porosity']
@@ -54,7 +54,7 @@ def test_scenarios_mbo_removal_function(organism_name = "MS2"):
         traveltime = df_test.at[fid,'total_travel_time']
  
         # Calculate advective microbial removal
-        mbo_removal = RF.MicrobialRemoval(organism = organism_name)
+        mbo_removal = rf.MicrobialRemoval(organism = organism_name)
         # Calculate final concentration after advective microbial removal
         C_final = mbo_removal.calc_advective_microbial_removal(grainsize = grainsize,
                                                 temp_water = temp_water, rho_water = rho_water,
@@ -66,12 +66,12 @@ def test_scenarios_mbo_removal_function(organism_name = "MS2"):
                                                 organism_diam = organism_diam,
                                                 mu1 = mu1,
                                                 alpha0 = alpha0,
-                                                reference_pH = reference_pH )
+                                                pH0 = pH0 )
 
         # k_att, calculated
         df_output.loc[fid,"k_att"] = mbo_removal.k_att
         # lambda, calculated
-        df_output.loc[fid,"lambda"] = mbo_removal.lambda_
+        df_output.loc[fid,"lambda"] = mbo_removal.lamda
         # (relative) concentration, calculated
         df_output.loc[fid,"steady_state_concentration"] = C_final
 
@@ -89,7 +89,7 @@ def test_scenarios_mbo_removal_function(organism_name = "MS2"):
 def test_mbo_removal_function_check_default(organism_name = "carotovorum",
                                             redox = 'anoxic',
                                             alpha0 = 0.577,
-                                            reference_pH = 7.5,
+                                            pH0 = 7.5,
                                             mu1 = 0.1279,
                                             organism_diam = 1.803e-6,
                                             por_eff = 0.33,
@@ -108,7 +108,7 @@ def test_mbo_removal_function_check_default(organism_name = "carotovorum",
     organism_name = "carotovorum"
     redox = 'anoxic',
     alpha0 = 0.577,
-    reference_pH = 7.5,
+    pH0 = 7.5,
     mu1 = 0.1279,
     organism_diam = 1.803e-6,
     por_eff = 0.33,
@@ -124,17 +124,17 @@ def test_mbo_removal_function_check_default(organism_name = "carotovorum",
 
     ## Default test
     # Calculate advective microbial removal
-    mbo_removal_default = RF.MicrobialRemoval(organism = organism_name)
+    mbo_removal_default = rf.MicrobialRemoval(organism = organism_name)
     # Calculate final concentration after advective microbial removal
     C_final_default= mbo_removal_default.calc_advective_microbial_removal()
 
     # Lambda (default): inactivation 
-    lambda_default = mbo_removal_default.lambda_   
+    lambda_default = mbo_removal_default.lamda   
 
 
 
     # Calculate advective microbial removal
-    mbo_removal_test = RF.MicrobialRemoval(organism = organism_name)
+    mbo_removal_test = rf.MicrobialRemoval(organism = organism_name)
     # Calculate final concentration after advective microbial removal
     C_final_test = mbo_removal_test.calc_advective_microbial_removal(grainsize = grainsize,
                                             temp_water = temp_water, rho_water = rho_water,
@@ -146,11 +146,11 @@ def test_mbo_removal_function_check_default(organism_name = "carotovorum",
                                             organism_diam = organism_diam,
                                             mu1 = mu1,
                                             alpha0 = alpha0,
-                                            reference_pH = reference_pH
+                                            pH0 = pH0
                                             )
 
     # Lambda: inactivation 
-    lambda_test = mbo_removal_test.lambda_     
+    lambda_test = mbo_removal_test.lamda     
 
     assert round(lambda_default,4) == round(lambda_test,4) 
     assert round(C_final_default,4) == round(C_final_test,4)
@@ -173,8 +173,8 @@ def test_manual_input_mbo_removal(organism_name = "MS2"):
     # Removal parms
     # alpha  'sticky coefficient'
     alpha0 = 0.001 # [-]
-    reference_pH = 7.5
-    # --> if pH == reference_pH, then coll_eff == alpha0
+    pH0 = 7.5
+    # --> if pH == pH0, then alpha == alpha0
     # coll_eff = 0.001
 
     # time dependent inactivation coefficient mu1 [day-1]
@@ -187,7 +187,7 @@ def test_manual_input_mbo_removal(organism_name = "MS2"):
     porewater_velocity = distance_traveled / traveltime
 
     # Calculate advective microbial removal
-    mbo_removal = RF.MicrobialRemoval(organism = organism_name)
+    mbo_removal = rf.MicrobialRemoval(organism = organism_name)
     # Calculate advective microbial removal
     C_final = mbo_removal.calc_advective_microbial_removal(grainsize = grainsize,
                                             temp_water = temp_water, rho_water = rho_water,
@@ -199,12 +199,12 @@ def test_manual_input_mbo_removal(organism_name = "MS2"):
                                             organism_diam = organism_diam,
                                             mu1 = mu1,
                                             alpha0 = alpha0,
-                                            reference_pH = reference_pH
+                                            pH0 = pH0
                                             )
     # Lambda: inactivation 
-    lambda_ = mbo_removal.lambda_                                             
+    lamda = mbo_removal.lamda                                             
 
-    assert round(lambda_,4) == round(0.7993188853572424 + mu1,4) 
+    assert round(lamda,4) == round(0.7993188853572424 + mu1,4) 
 
     assert round(C_final,3) == round(6.531818379725895e-42,3)
     
