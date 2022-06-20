@@ -13,3 +13,4 @@ Key definitions and abbreviations
   mu1: inactivation coefficient [day-1]
   k_att: attachment coefficient [day-1]
   lambda: removal coefficient [day-1], equals k_att + mu1
+  mbo: abbreviation for microbial organisms

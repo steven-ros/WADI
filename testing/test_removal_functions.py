@@ -66,7 +66,7 @@ def test_scenarios_mbo_removal_function(organism_name = "MS2"):
                                                 organism_diam = organism_diam,
                                                 mu1 = mu1,
                                                 alpha0 = alpha0,
-                                                pH0 = pH0 )
+                                                pH0 = pH0)
 
         # k_att, calculated
         df_output.loc[fid,"k_att"] = mbo_removal.k_att

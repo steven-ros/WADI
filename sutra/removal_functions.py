@@ -18,16 +18,18 @@ path = os.getcwd()
 
 class Organism:
     ''' 
-    Placeholder class which will later be replaced by the QSAR functionality of AquaPriori ?!
+    Placeholder class which includes removal parameters for
+    a selection of microbial organisms ('mbo'). For now dictionary includes 
+    the plant pathogens: 'solani' (Dickeya solani),
+    'carotovorum' (Pectobacterium carotovorum), and
+    'solanacearum' (Ralstonia solanacearum).
 
-    For removal of microbial organisms ('mbo') / pathogen 
-    
-    microbial_species_dict: dict
+    removal_paramaters_dict: dict
     Attributes
     ---------
     organism_name: String
-        species_name of the substance (for now limited dictionary to 'MS2' (MS2-virus)
-        
+        species_name of the substance 
+
     'alpha0': float
         reference_collision_efficiency [-]
         per redox zone ('suboxic', 'anoxic', deeply_anoxic')
@@ -45,11 +47,13 @@ class Organism:
         """
         Parameters
         ----------
-        organism: String,
-            name of the substance (for now limited dictionary to 'benzene', 'AMPA', 'benzo(a)pyrene'
+
+        organism: str
+            name of the organism (for now limited dictionary to 
+            'solani','carotovorum', 'solanacearum'
 
         Returns
-        -------
+        --------
         organism_dict: dictionary
             'alpha0': float
                 reference_collision_efficiency [-]
@@ -63,11 +67,8 @@ class Organism:
                 inactivation coefficient [1/day]
                 per redox zone ('suboxic', 'anoxic', deeply_anoxic')
 
-        @SR (21-1-2022): Adjust documentation for microbial organisms (mbo)        
         """
         self.organism_name = organism_name
-
-        # Dict    # Acties Steven 25-1-22
 
         # Naming convention organism: Uppercamelcase species
         micro_organism_dict = {
@@ -129,8 +130,7 @@ class Organism:
                     }
                 },
             }
-        #@ Steven voeg toe: micro_organism_dict
-        # self.micro_organism_dict = micro_organism_dict[substance_name]
+
         if self.organism_name in micro_organism_dict.keys():
             self.organism_dict = micro_organism_dict[self.organism_name]
         else: # return empty dict
@@ -154,12 +154,9 @@ class Organism:
                      }
                 }
 
-        
-
 class MicrobialRemoval():
     '''
-    Returns concentration for a given microbial species.
-
+    Class to calculate removal (rate) for a given microbial organism.
 
     organism: object
         The microbial organism object with the microbial organism (mbo) of interest
@@ -176,7 +173,6 @@ class MicrobialRemoval():
             'mu1': float
                 inactivation coefficient [1/day]
                 per redox zone ('suboxic', 'anoxic', deeply_anoxic')
-    
     '''
 
     def __init__(self,
@@ -278,30 +274,60 @@ class MicrobialRemoval():
             Calculate removal coefficient lambda [/day].
             
             Parameters:
-            --------
-            lambda: k_att + mu_1
-            with 'hechtingssnelheidscoëfficiënt k_att [/day] and
-            inactivation constant 'mu1' [/day] - sub(oxic): 0.149 [/day]
-            lognormal standarddev. 'mu1_std' - sub(oxic): 0.0932 [/day]
+            ------------
 
-            First, calculate "hechtingssnelheidscoëfficiënt" 'k_att' [/day]
-            for Particle Paths with id_vals 'part_idx'
-            # Effective porosity ('por_eff') [-]
-            # grain size 'grainsize' [m]
-            # collision efficiency ('botsingsefficiëntie') 'bots_eff' [-]
-            # Boltzmann constant (const_BM) [1,38 × 10-23 J K-1] 
-            # Water temperature 'temp_water' [degrees celcius]
-            # Water density 'rho_water' [kg m-3]
-            # Organism/species diameter 'organism_diam' [m]
-            # porewater velocity 'v_por' [m/d]
+            redox: str
+                redox condition ['suboxic','anoxic','deeply_anoxic']
             
-            # Check - (example 'E_coli'):
-            >> k_att = calc_katt(part_idx = [0], por_eff = [0.33], korrelgrootte = [0.00025],
-            bots_eff = 0.001, const_BM = 1.38e-23,
-            temp_water = [10.], rho_water = [999.703],
-            organism_diam = 2.33e-8, v_por = [0.01])
-            >> print(k_att)
-            >> {0: 0.7993188853572424} # [/day]
+            mu1: float
+                inactivation coefficient [day-1]
+            
+            por_eff: float
+                effective porosity [-]
+            
+            grainsize: float
+                grain diameter of sediment [m]
+            
+            pH: float
+                pH of the water [-]
+            
+            pH0: float
+                reference pH for which alpha0 was determined 
+            
+            temp_water: float
+                Water temperature [degrees celcius]
+            
+            rho_water: float
+                Water density [kg m-3]
+            
+            alpha: float
+                'sticky coefficient' [-], pH corrected
+            
+            alpha0: float
+                'reference sticky coefficient', for a reference pH [pH0]
+            
+            organism_diam: float
+                Organism/species diameter [m]
+
+            v_por: float
+                porewater velocity [m/d]
+
+            const_BM: float
+                Boltzmann constant [1,38 × 10-23 J K-1] 
+
+            Calculates:
+            -------------
+
+            lambda: float
+                k_att + mu_1 'removal rate' [day-1]
+
+            k_att: float
+                attachmant rate [day-1]
+
+            Returns:
+                lambda, k_att
+            
+
         '''
 
         # Boltzmann coefficient [J K-1]
@@ -360,14 +386,69 @@ class MicrobialRemoval():
                 BTO2012.015: Ch 6.7 (page 71-74)
 
             Calculate the steady state concentration along traveled distance per 
-            node for each pathline from startpoint to endpoint_id'.
+            node for each pathline from startpoint to endpoint'.
             
-            With removal coefficient 'lambda' [day-1] (redox dependent)
-            effective porosity 'porosity' [-]
-            Starting concentration 'conc_start' per pathline
-            Initial groundwater concentration 'conc_gw'
-            Distance between points 'distance_traveled' [m]
-            Time between start and endpoint 'traveltime' [days]
+            Parameters:
+            ------------
+            lambda: float
+                'removal rate' [day-1] (redox dependent) --> calculated
+            
+            redox: str
+                redox condition ['suboxic','anoxic','deeply_anoxic']
+            
+            mu1: float
+                inactivation coefficient [day-1]
+            
+            por_eff: float
+                effective porosity [-]
+            
+            grainsize: float
+                grain diameter of sediment [m]
+            
+            pH: float
+                pH of the water [-]
+            
+            pH0: float
+                reference pH for which alpha0 was determined 
+            
+            temp_water: float
+                Water temperature [degrees celcius]
+            
+            rho_water: float
+                Water density [kg m-3]
+            
+            alpha: float
+                'sticky coefficient' [-], pH corrected
+            
+            alpha0: float
+                'reference sticky coefficient', for a reference pH [pH0]
+            
+            organism_diam: float
+                organism/species diameter [m]
+            
+            v_por: float
+                porewater velocity [m/d]
+            
+            conc_start: float
+                starting concentration
+            
+            conc_gw: float
+                initial groundwater concentration
+            
+            distance_traveled: float
+                distance between points [m]
+            
+            traveltime: float
+                time between start and endpoint [days]
+
+            Calculates:
+            ------------
+
+            C_final: float
+                final concentration [N/L]
+            
+            Returns:
+                C_final
 
         '''
 
