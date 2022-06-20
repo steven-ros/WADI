@@ -181,11 +181,6 @@ class MicrobialRemoval():
 
     def __init__(self,
                 organism: Organism = 'carotovorum',
-                partition_coefficient_water_organic_carbon=None,
-                dissociation_constant=None,
-                halflife_suboxic=None,
-                halflife_anoxic=None,
-                halflife_deeply_anoxic=None,
                 alpha0_suboxic=None,
                 alpha0_anoxic=None,
                 alpha0_deeply_anoxic=None,
