@@ -10,7 +10,7 @@ Main features:
 
 Install
 -------
-Sutra requires Python 3.6 or later.
+Sutra requires Python 3.8 or later.
 
 To get Sutra, use the following command::
 
