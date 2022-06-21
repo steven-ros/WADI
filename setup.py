@@ -22,7 +22,7 @@ setup(
         'Programming Language :: Python :: 3.7',
         'Topic :: Scientific/Engineering :: Hydrology',
     ],
-    python_requires='>=3.8',
+    python_requires='>=3.7',
     project_urls={
     'Source': 'https://github.com/KWR-Water/sutra',
     'Documentation': 'http://sutra.readthedocs.io/en/latest/',
@@ -32,7 +32,6 @@ setup(
     },
     install_requires=[
         'pandas>=0.23',
-        'python>=3.8'
 
         ],
     include_package_data=True,
