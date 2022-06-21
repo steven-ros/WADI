@@ -25,7 +25,7 @@ During transport in the subsurface, microbial organism removal takes place by bo
 The virus concentration 'C' [m-3] through steady-state transport of microbial organisms along pathlines in the saturated
 groundwater can be approximated by:
 
-.. image:: ../images/mrlp_20211018_equation1.png
+.. image:: ../_images/mrlp_20211018_equation1.png
   :width: 200
   :alt: Equation1
 
@@ -38,7 +38,7 @@ v: the porewater velocity [m day-1] or 'darcyflux divided by the effective poros
 Assuming that the background concentration of the relevant microbial organism equals 0,
 the relative removal 'C_x/C0' can be calculated as follows.
 
-.. image:: ../images/mrlp_20211018_equation2.png
+.. image:: ../_images/mrlp_20211018_equation2.png
   :width: 250
   :alt: Equation2
 
@@ -46,7 +46,7 @@ The attachment coefficient 'k_att' depends on the effective porosity 'epsilon', 
 'sticky coefficient' alpha [day-1], the porosity dependent Happel's parameter 'A_s', diffusion constant 'D_BM' [m2 day-1], and
 the porewater velocity [m day-1].
 
-.. image:: ../images/mrlp_20211018_equation3.png
+.. image:: ../_images/mrlp_20211018_equation3.png
   :width: 250
   :alt: Equation3
 
@@ -54,7 +54,7 @@ The sticky coefficient alpha is determined by coefficient 'alpha0', which depend
 Alpha0 is being determined for a reference pH [pH0], e.g. pH=7.5.
 Alpha relates to alpha0 as follows [corrected for different pH].
 
-.. image:: ../images/mrlp_20211018_equation4.png
+.. image:: ../_images/mrlp_20211018_equation4.png
   :width: 250
   :alt: Equation4
 
@@ -62,19 +62,19 @@ The other parameters are calculated as follows:
 
 Happel's porosity dependent parameter
 
-.. image:: ../images/mrlp_20211018_equation5.png
+.. image:: ../_images/mrlp_20211018_equation5.png
   :width: 250
   :alt: Equation5
 
 Where:
 
-.. image:: ../images/mrlp_20211018_equation6.png
+.. image:: ../_images/mrlp_20211018_equation6.png
   :width: 250
   :alt: Equation6
 
 Boltzmann diffusion coefficient:
 
-.. image:: ../images/mrlp_20211018_equation7.png
+.. image:: ../_images/mrlp_20211018_equation7.png
   :width: 250
   :alt: Equation7
 
@@ -85,7 +85,7 @@ The dynamic viscosity 'mu' [kg m-1 s-1] depends on the groundwater density 'rho'
 The water density is assumed to be 999.7 [kg m-3], representative for fresh groundwater in the Netherlands under a reference
 temperature of 12 degrees centigrade.
 
-.. image:: ../images/mrlp_20211018_equation8.png
+.. image:: ../_images/mrlp_20211018_equation8.png
   :width: 250
   :alt: Equation8
 
