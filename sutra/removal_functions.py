@@ -207,7 +207,6 @@ class MicrobialRemoval():
         self.organism_diam=organism_diam        
 
         # Create user dict with 'removal_parameters' from input
-        # if self.removal_function == 'omp':
         user_removal_parameters = {
             self.organism_name:
                 {"organism_name": self.organism_name,

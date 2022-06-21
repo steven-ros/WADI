@@ -14,5 +14,3 @@ License
 This package is MIT licensed. See `License File <https://github.com/KWR-Water/sutra/blob/main/LICENSE/>`_ .
 
 ..
-  #AH @MartinK - licence change name Greta to SSTR?
-  # @ALEX yes we need an overall change to the final name (SSTR or ...)
