@@ -1,7 +1,7 @@
 # for developers install with `pip install -r requirements-developers.txt`
 ipykernel
 matplotlib>=3.2
-# python ==3.6
+python>=3.8
 pandas>=1
 openpyxl>=3.0.0
 cloudpickle>=1.2.2

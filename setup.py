@@ -7,7 +7,7 @@ def read(fname):
 
 setup(
     name='sutra',
-    version='0.1.1',
+    version='0.1.2',
     packages=find_packages(exclude=['tests*']),
     license='MIT',
     description='A python package for calculating the removal of microbial organisms in the subsurface',
@@ -22,7 +22,7 @@ setup(
         'Programming Language :: Python :: 3.7',
         'Topic :: Scientific/Engineering :: Hydrology',
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.8',
     project_urls={
     'Source': 'https://github.com/KWR-Water/sutra',
     'Documentation': 'http://sutra.readthedocs.io/en/latest/',
@@ -32,6 +32,7 @@ setup(
     },
     install_requires=[
         'pandas>=0.23',
+        'python>=3.8'
 
         ],
     include_package_data=True,
