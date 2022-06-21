@@ -8,13 +8,16 @@ Main features:
  - Includes database of removal parameters for microbial organisms. 
  - Calculate the removal and concentration of the microbial organism over distance, and with time   
 
-Install
--------
-Sutra requires Python 3.8 or later.
+Installation
+------------
+To get the latest stable version, use::
 
-To get Sutra, use the following command::
+    python -m pip install git+https://github.com/KWR-Water/sutra.git@main
 
-  pip install git+https://github.com/KWR-Water/sutra.git
+or::
+
+    pip install git+ssh://git@github.com/KWR-Water/sutra.git@main
+
 
 Philosophy
 ----------
