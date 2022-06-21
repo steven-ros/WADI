@@ -76,6 +76,6 @@ import pandas as pd"""
 nbsphinx_allow_errors = True
 
 nbsphinx_execute_arguments = [
-    "--InlineBackend.figure_formats={'svg', 'pdf'}", #  recommended for matplotlib
+    "--InlineBackend.figure_formats={'svg', 'pdf','png'}", #  recommended for matplotlib
     "--InlineBackend.rc={'figure.dpi': 96}",  # recommended for matplotlib
 ]
