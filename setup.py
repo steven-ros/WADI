@@ -7,7 +7,7 @@ def read(fname):
 
 setup(
     name='sutra',
-    version='0.2.0',
+    version='0.2.1',
     packages=find_packages(exclude=['tests*']),
     license='MIT',
     description='A python package for calculating the removal of microbial organisms in the subsurface',
