@@ -25,7 +25,7 @@ During transport in the subsurface, microbial organism removal takes place by bo
 The virus concentration 'C' [m-3] through steady-state transport of microbial organisms along pathlines in the saturated
 groundwater can be approximated by:
 
-.. image:: _images/mrlp_20211018_equation1.png
+.. image:: https://sutra.readthedocs.io/en/images/mrlp_20211018_equation1.png
   :width: 200
   :alt: Equation1
 
