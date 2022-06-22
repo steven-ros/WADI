@@ -24,7 +24,7 @@ copyright = '2022, KWR Water Research Institute'
 author = 'Martin Korevaar, Martin van der Schans, Steven Ros, Alex Hockin'
 
 # The full version, including alpha/beta/rc tags
-release = '0.2.0'
+release = '0.2.2'
 
 
 # -- General configuration ---------------------------------------------------
