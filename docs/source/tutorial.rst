@@ -284,8 +284,10 @@ Calculate the final concentration, removal parameters for redox condition 'anoxi
                                         traveltime = traveltime)
     # k_att, calculated
     k_att = mbo_removal_B2.k_att
+    print(k_att)
     # lambda, calculated
-    lambda_rate = mbo_removal_B2.lamda
+    lamda = mbo_removal_B2.lamda
+    print(lamda)
     # Final concentration
     print(C_final_B2)
 
