@@ -25,7 +25,7 @@ During transport in the subsurface, microbial organism removal takes place by bo
 The virus concentration 'C' [m-3] through steady-state transport of microbial organisms along pathlines in the saturated
 groundwater can be approximated by:
 
-.. image:: _images/mrlp_20211018_equation1.PNG
+.. image:: docs/source/_images/mrlp_20211018_equation1.PNG
   :width: 200
   :alt: Equation1: dC/dx + ((k_att + μ_1) / v) * C = 0
 
@@ -38,7 +38,7 @@ v: the porewater velocity [m day-1] or 'darcyflux divided by the effective poros
 Assuming that the background concentration of the relevant microbial organism equals 0,
 the relative removal 'C_x/C0' can be calculated as follows.
 
-.. image:: _images/mrlp_20211018_equation2.PNG
+.. image:: docs/_images/mrlp_20211018_equation2.PNG
   :width: 250
   :alt: Equation2: log(C_x/C_0) = -(((k_att + μ_1))/ln⁡(10)) * (x/v)
 
