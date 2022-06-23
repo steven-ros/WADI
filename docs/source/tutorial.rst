@@ -25,7 +25,7 @@ During transport in the subsurface, microbial organism removal takes place by bo
 The virus concentration 'C' [m-3] through steady-state transport of microbial organisms along pathlines in the saturated
 groundwater can be approximated by:
 
-.. image:: docs/source/_images/mrlp_20211018_equation1.PNG
+.. image:: _images/mrlp_20211018_equation1.PNG
   :width: 200
   :alt: Equation1: dC/dx + ((k_att + μ_1) / v) * C = 0
 
@@ -38,7 +38,7 @@ v: the porewater velocity [m day-1] or 'darcyflux divided by the effective poros
 Assuming that the background concentration of the relevant microbial organism equals 0,
 the relative removal 'C_x/C0' can be calculated as follows.
 
-.. image:: docs/_images/mrlp_20211018_equation2.PNG
+.. image:: _images/mrlp_20211018_equation2.PNG
   :width: 250
   :alt: Equation2: log(C_x/C_0) = -(((k_att + μ_1))/ln⁡(10)) * (x/v)
 
@@ -46,7 +46,7 @@ The attachment coefficient 'k_att' depends on the effective porosity 'epsilon', 
 'sticky coefficient' alpha [day-1], the porosity dependent Happel's parameter 'A_s', diffusion constant 'D_BM' [m2 day-1], and
 the porewater velocity [m day-1].
 
-.. image:: ../_images/mrlp_20211018_equation3.PNG
+.. image:: _images/mrlp_20211018_equation3.PNG
   :width: 250
   :alt: Equation3: k_att = 3/2 *(((1-ε))/d_c) * α*4*A_s^(1⁄3)*(D_BM/(d_c*ε*v))^(2⁄3) * v
 
@@ -85,7 +85,7 @@ The dynamic viscosity 'mu' [kg m-1 s-1] depends on the groundwater density 'rho'
 The water density is assumed to be 999.7 [kg m-3], representative for fresh groundwater in the Netherlands under a reference
 temperature of 12 degrees centigrade.
 
-.. image:: docs/_images/mrlp_20211018_equation8.PNG
+.. image:: _images/mrlp_20211018_equation8.PNG
   :width: 250
   :alt: Equation8: μ = (ρ * 497*10^(-6))/(T + 42.5)^(3⁄2) 
 
