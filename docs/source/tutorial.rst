@@ -47,7 +47,7 @@ The attachment coefficient 'k_att' depends on the effective porosity 'epsilon', 
 the porewater velocity [m day-1].
 
 .. image:: _images/mrlp_20211018_equation3.PNG
-  :width: 250
+  :width: 300
   :alt: Equation3: k_att = 3/2 *(((1-ε))/d_c) * α*4*A_s^(1⁄3)*(D_BM/(d_c*ε*v))^(2⁄3) * v
 
 The sticky coefficient alpha is determined by coefficient 'alpha0', which depends on both the soil type and the type of organism.
