@@ -46,7 +46,7 @@ The attachment coefficient 'k_att' depends on the effective porosity 'epsilon', 
 'sticky coefficient' alpha [day-1], the porosity dependent Happel's parameter 'A_s', diffusion constant 'D_BM' [m2 day-1], and
 the porewater velocity [m day-1].
 
-.. image:: ../docs/_images/mrlp_20211018_equation3.PNG
+.. image:: ../_images/mrlp_20211018_equation3.PNG
   :width: 250
   :alt: Equation3: k_att = 3/2 *(((1-ε))/d_c) * α*4*A_s^(1⁄3)*(D_BM/(d_c*ε*v))^(2⁄3) * v
 
