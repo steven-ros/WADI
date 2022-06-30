@@ -384,9 +384,6 @@ class MicrobialRemoval():
             For more information about the advective microbial removal calculation: 
                 BTO2012.015: Ch 6.7 (page 71-74)
 
-            Calculate the steady state concentration along traveled distance per 
-            node for each pathline from startpoint to endpoint'.
-            
             Parameters:
             ------------
             lambda: float
