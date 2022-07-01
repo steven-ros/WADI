@@ -144,7 +144,7 @@ class Organism:
                  "pH0": {
                     "suboxic": None, 
                     "anoxic": None, 
-                    "deeply_anoxic": 7.5
+                    "deeply_anoxic": None
                     },
                  "organism_diam": None,
                  "mu1": {
@@ -191,6 +191,22 @@ class MicrobialRemoval():
         '''
         Initialization of the MicrobialRemoval class, checks for user-defined 
         microbial organism removal parameters and overrides the database values.
+
+        Parameters
+        ----------
+        organism: object
+            The Organism object with microbial organism (MBO) of interest
+        alpha0_suboxic, alpha0_anoxic, alpha0_deeply_anoxic: float
+            reference_collision_efficiency [-]
+            per redox zone ('suboxic', 'anoxic', deeply_anoxic')
+        pH0_suboxic, pH0_anoxic, pH0_deeply_anoxic: float
+            reference pH for calculating collision efficiency [-]
+            per redox zone ('suboxic', 'anoxic', deeply_anoxic')
+        mu1_suboxic, mu1_anoxic, mu1_deeply_anoxic: float
+            inactivation coefficient [1/day]
+            per redox zone ('suboxic', 'anoxic', deeply_anoxic')
+        organism_diam: float
+            diameter of pathogen/species [m]
         '''
 
         # Organism
@@ -272,8 +288,8 @@ class MicrobialRemoval():
 
             Calculate removal coefficient lambda [/day].
             
-            Parameters:
-            ------------
+            Parameters
+            -----------
 
             redox: str
                 redox condition ['suboxic','anoxic','deeply_anoxic']
@@ -314,8 +330,8 @@ class MicrobialRemoval():
             const_BM: float
                 Boltzmann constant [1,38 × 10-23 J K-1] 
 
-            Calculates:
-            -------------
+            Calculates
+            ------------
 
             lambda: float
                 k_att + mu_1 'removal rate' [day-1]
@@ -323,7 +339,8 @@ class MicrobialRemoval():
             k_att: float
                 attachmant rate [day-1]
 
-            Returns:
+            Returns
+            --------
                 lambda, k_att
             
 
@@ -384,8 +401,8 @@ class MicrobialRemoval():
             For more information about the advective microbial removal calculation: 
                 BTO2012.015: Ch 6.7 (page 71-74)
 
-            Parameters:
-            ------------
+            Parameters
+            -----------
             lambda: float
                 'removal rate' [day-1] (redox dependent) --> calculated
             
@@ -437,13 +454,14 @@ class MicrobialRemoval():
             traveltime: float
                 time between start and endpoint [days]
 
-            Calculates:
-            ------------
+            Calculates
+            -----------
 
             C_final: float
                 final concentration [N/L]
             
-            Returns:
+            Returns
+            --------
                 C_final
 
         '''
