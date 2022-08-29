@@ -1,7 +1,7 @@
 OMP_soil_database
-=====
+=================
 
 .. toctree::
    :maxdepth: 2
 
-   sutra
+   OMP_soil_database

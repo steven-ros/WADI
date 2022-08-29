@@ -1,5 +1,5 @@
-OMP-soil-database package
-==========================
+OMP\_soil\_database package
+===========================
 
 Submodules
 ----------
@@ -7,12 +7,12 @@ Submodules
 .. toctree::
    :maxdepth: 2
 
-   OMP-soil-database.removal_functions
+   OMP_soil_database.removal_functions
 
 Module contents
 ---------------
 
-.. automodule:: OMP-soil-database
+.. automodule:: OMP_soil_database
    :members:
    :undoc-members:
    :show-inheritance:
