@@ -1,4 +1,4 @@
-sutra package
+OMP-soil-database package
 =============
 
 Submodules
@@ -7,12 +7,12 @@ Submodules
 .. toctree::
    :maxdepth: 2
 
-   sutra.removal_functions
+   OMP-soil-database.removal_functions
 
 Module contents
 ---------------
 
-.. automodule:: sutra
+.. automodule:: OMP-soil-database
    :members:
    :undoc-members:
    :show-inheritance:
