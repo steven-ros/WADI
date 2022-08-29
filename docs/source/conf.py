@@ -19,12 +19,12 @@ sys.path.insert(0, os.path.abspath('../..'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'Sutra'
+project = 'OMP_soil_database'
 copyright = '2022, KWR Water Research Institute'
-author = 'Martin Korevaar, Martin van der Schans, Steven Ros, Alex Hockin'
+author = 'Vincent Post, Martin Korevaar, Martin van der Schans, Steven Ros'
 
 # The full version, including alpha/beta/rc tags
-release = '0.2.2'
+release = '0.0.1'
 
 
 # -- General configuration ---------------------------------------------------

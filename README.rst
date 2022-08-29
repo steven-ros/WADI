@@ -16,15 +16,15 @@ Installation
 ------------
 To get the latest stable version, use::
 
-    python -m pip install git+https://github.com/KWR-Water/sutra.git@main
+    python -m pip install git+https://github.com/KWR-Water/OMP_soil_database.git@main
 
 or::
 
-    pip install git+ssh://git@github.com/KWR-Water/sutra.git@main
+    pip install git+ssh://git@github.com/KWR-Water/OMP_soil_database.git@main
 
 License
 -------
 
-This package is MIT licensed. See `License File <https://github.com/KWR-Water/sutra/blob/master/LICENSE>`__.
+This package is MIT licensed. See `License File <https://github.com/KWR-Water/OMP_soil_database/blob/master/LICENSE>`__.
 
-.. _documentation: https://sutra.readthedocs.io/en/latest/
+.. _documentation: https://OMP_soil_database.readthedocs.io/en/latest/
