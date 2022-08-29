@@ -24,7 +24,7 @@ copyright = '2022, KWR Water Research Institute'
 author = 'Vincent Post, Martin Korevaar, Martin van der Schans, Steven Ros'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.2'
+release = '0.0.3'
 
 
 # -- General configuration ---------------------------------------------------
