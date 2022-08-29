@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: OMP-soil-database
-Version: 0.0.2
+Version: 0.0.3
 Summary: A python package for calculating the removal of microbial organisms in the subsurface
 Home-page: https://github.com/KWR-Water/OMP_soil_database
 Author: KWR Water Research Institute
@@ -10,14 +10,14 @@ Project-URL: Source, https://github.com/steven-ros/OMP_soil_database
 Project-URL: Documentation, http://OMP_soil_database.readthedocs.io/en/latest/
 Project-URL: Tracker, https://github.com/KWR-Water/OMP_soil_database/issues
 Project-URL: Help, https://github.com/KWR-Water/OMP_soil_database/issues
-Description: OMP_soil_database
-        =======================
-        .. image:: https://readthedocs.org/projects/OMP_soil_database/badge/?version=latest&style=flat
-                            :target: https://OMP_soil_database.readthedocs.io
-        .. image:: https://img.shields.io/travis/KWR-Water/OMP_soil_database
-                            :target: https://travis-ci.com/KWR-Water/OMP_soil_database
-        .. image:: https://img.shields.io/codecov/c/gh/KWR-Water/OMP_soil_database
-                            :target: https://codecov.io/gh/KWR-Water/OMP_soil_database
+Description: SUTRA
+        ============
+        .. image:: https://readthedocs.org/projects/sutra/badge/?version=latest&style=flat
+                            :target: https://sutra.readthedocs.io
+        .. image:: https://img.shields.io/travis/KWR-Water/sutra
+                            :target: https://travis-ci.com/KWR-Water/sutra
+        .. image:: https://img.shields.io/codecov/c/gh/KWR-Water/sutra
+                            :target: https://codecov.io/gh/KWR-Water/sutra
         
         A tool to calculate the fate of Organic Micropollutant and pathogens in the subsoil.
         
