@@ -6,8 +6,8 @@ def read(fname):
         return f.read()
 
 setup(
-    name='OMP_soil_database',
-    version='0.1.0',
+    name='WADI',
+    version='0.0.1',
     packages=find_packages(exclude=['tests*']),
     license='MIT',
     description='A python package for calculating the removal of microbial organisms in the subsurface',
@@ -24,18 +24,18 @@ setup(
     ],
     python_requires='>=3.7',
     project_urls={
-    'Source': 'https://github.com/steven-ros/OMP_soil_database',
-    'Documentation': 'http://OMP_soil_database.readthedocs.io/en/latest/',
-    'Tracker': 'https://github.com/KWR-Water/OMP_soil_database/issues',
-    'Help': 'https://github.com/KWR-Water/OMP_soil_database/issues',
-    # 'Help': 'https://stackoverflow.com/questions/tagged/OMP_soil_database'
+    'Source': 'https://github.com/steven-ros/WADI',
+    'Documentation': 'http://WADI.readthedocs.io/en/latest/',
+    'Tracker': 'https://github.com/steven-ros/WADI/issues',
+    'Help': 'https://github.com/steven-ros/WADI/issues',
+    # 'Help': 'https://stackoverflow.com/questions/tagged/WADI'
     },
     install_requires=[
         'pandas>=0.23',
 
         ],
     include_package_data=True,
-    url='https://github.com/KWR-Water/OMP_soil_database',
+    url='https://github.com/steven-ros/WADI',
     author='KWR Water Research Institute',
     author_email='vincent.post@kwrwater.nl, martin.korevaar@kwrwater.nl, martin.van.der.schans@kwrwater.nl, steven.ros@kwrwater.nl'
 )

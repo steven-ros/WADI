@@ -108,7 +108,7 @@ Now, let’s try some examples. First we import the necessary python packages
     import os
     import sys
     from pathlib import Path
-    import sutra.removal_functions as rf
+    import WADI.removal_functions as rf
 
 
 Scenario A: Calculate removal of a microbial organism using default database parameters. 

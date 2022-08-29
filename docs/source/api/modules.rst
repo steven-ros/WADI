@@ -1,7 +1,7 @@
-OMP_soil_database
+WADI
 =================
 
 .. toctree::
    :maxdepth: 2
 
-   OMP_soil_database
+   WADI

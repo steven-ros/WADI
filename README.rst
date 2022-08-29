@@ -1,11 +1,11 @@
 SUTRA
 ============
 .. image:: https://readthedocs.org/projects/sutra/badge/?version=latest&style=flat
-                    :target: https://sutra.readthedocs.io
-.. image:: https://img.shields.io/travis/KWR-Water/sutra
-                    :target: https://travis-ci.com/KWR-Water/sutra
-.. image:: https://img.shields.io/codecov/c/gh/KWR-Water/sutra
-                    :target: https://codecov.io/gh/KWR-Water/sutra
+                    :target: https://WADI.readthedocs.io
+.. image:: https://img.shields.io/travis/steven-ros/WADI
+                    :target: https://travis-ci.com/steven-ros/WADI
+.. image:: https://img.shields.io/codecov/c/gh/steven-ros/WADI
+                    :target: https://codecov.io/gh/steven-ros/WADI
 
 A tool to calculate the fate of Organic Micropollutant and pathogens in the subsoil.
 
@@ -16,15 +16,15 @@ Installation
 ------------
 To get the latest stable version, use::
 
-    python -m pip install git+https://github.com/KWR-Water/OMP_soil_database.git@main
+    python -m pip install git+https://github.com/steven-ros/WADI.git@main
 
 or::
 
-    pip install git+ssh://git@github.com/KWR-Water/OMP_soil_database.git@main
+    pip install git+ssh://git@github.com/steven-ros/WADI.git@main
 
 License
 -------
 
-This package is MIT licensed. See `License File <https://github.com/KWR-Water/OMP_soil_database/blob/master/LICENSE>`__.
+This package is MIT licensed. See `License File <https://github.com/steven-ros/WADI/blob/master/LICENSE>`__.
 
-.. _documentation: https://OMP_soil_database.readthedocs.io/en/latest/
+.. _documentation: https://WADI.readthedocs.io/en/latest/

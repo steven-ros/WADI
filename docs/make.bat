@@ -25,7 +25,7 @@ if errorlevel 9009 (
 	exit /b 1
 )
 
-sphinx-apidoc -f -o source/api ../OMP_soil_database --separate --force -d 2
+sphinx-apidoc -f -o source/api ../WADI --separate --force -d 2
 
 %SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
 goto end

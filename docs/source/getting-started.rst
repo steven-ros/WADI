@@ -12,11 +12,11 @@ Installation
 ------------
 To get the latest stable version, use::
 
-    python -m pip install git+https://github.com/KWR-Water/OMP_soil_database.git@main
+    python -m pip install git+https://github.com/steven-ros/WADI.git@main
 
 or::
 
-    pip install git+ssh://git@github.com/KWR-Water/OMP_soil_database.git@main
+    pip install git+ssh://git@github.com/steven-ros/WADI.git@main
 
 
 Philosophy

@@ -1,4 +1,4 @@
-OMP-soil-database package
+WADI package
 ==========================
 
 Submodules
@@ -7,12 +7,12 @@ Submodules
 .. toctree::
    :maxdepth: 2
 
-   OMP-soil-database.removal_functions
+   WADI.removal_functions
 
 Module contents
 ---------------
 
-.. automodule:: OMP-soil-database
+.. automodule:: WADI
    :members:
    :undoc-members:
    :show-inheritance:

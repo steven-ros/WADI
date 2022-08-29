@@ -1,7 +1,7 @@
-OMP-soil-database.removal\_functions module
+WADI.removal\_functions module
 ============================================
 
-.. automodule:: OMP-soil-database.removal_functions
+.. automodule:: WADI.removal_functions
    :members:
    :undoc-members:
    :show-inheritance:

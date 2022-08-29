@@ -12,7 +12,7 @@ import warnings
 
 from zmq import zmq_version_info
 
-import OMP_soil_database.removal_functions as rf
+import WADI.removal_functions as rf
 
 # get directory of this file
 path = Path(__file__).parent #os.getcwd() #path of working directory

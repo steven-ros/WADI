@@ -19,12 +19,12 @@ sys.path.insert(0, os.path.abspath('../..'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'OMP_soil_database'
+project = 'WADI'
 copyright = '2022, KWR Water Research Institute'
 author = 'Vincent Post, Martin Korevaar, Martin van der Schans, Steven Ros'
 
 # The full version, including alpha/beta/rc tags
-release = '0.1.0'
+release = '0.0.1'
 
 
 # -- General configuration ---------------------------------------------------
