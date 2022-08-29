@@ -11,7 +11,7 @@ BTO 2012.015 "Gezondheidsrisico's van fecale verontreiniging" [in Dutch], pp 71-
 
 License
 -------
-This package is MIT licensed. See `License File <https://github.com/KWR-Water/sutra/blob/main/LICENSE/>`_ .
+This package is MIT licensed. See `License File <https://github.com/KWR-Water/OMP_soil_database/blob/main/LICENSE/>`_ .
 
 Acknowledgements
 -----------------
